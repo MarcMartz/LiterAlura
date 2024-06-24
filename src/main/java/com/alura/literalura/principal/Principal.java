@@ -29,7 +29,7 @@ public class Principal {
 
     public void muestraElMenu() {
         while (true) {
-            System.out.println("\n*************** API LITERATURA ***************");
+            System.out.println("\n*************** API LITERALURA ***************");
             System.out.println("Seleccione una opción:");
             System.out.println("1. Buscar libro por título");
             System.out.println("2. Listar libros registrados");
