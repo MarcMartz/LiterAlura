@@ -11,13 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class LibroService {
     @Autowired
     private LibroRepository libroRepository;
-
     @Autowired
     private AutorRepository autorRepository;
 
@@ -39,35 +37,9 @@ public class LibroService {
         return libroRepository.findAll();
     }
 
-    // Método para obtener todos los autores de los libros
-    public List<String> listarAutoresDeLibros() {
-        List<Libro> libros = libroRepository.findAll();
-        return libros.stream()
-                .flatMap(libro -> libro.getAutores().stream())
-                .map(autor -> autor.getNombre())
-                .distinct()
-                .collect(Collectors.toList());
-    }
-
-    // Método para listar autores vivos en un determinado año
-    public List<Autor> listarAutoresVivosEnAnio(int anio) {
-        return autorRepository.findByFechaFallecimientoIsNullOrFechaNacimientoLessThanEqual(anio);
-    }
-    /*
-    public List<Autor> listarAutoresVivosEnAnio(int anio) {
-        List<Autor> autores = autorRepository.findAll();
-        return autores.stream()
-                .filter(autor -> autor.getFechaFallecimiento() == null || autor.getFechaFallecimiento() >= anio)
-                .filter(autor -> autor.getFechaNacimiento() <= anio)
-                .collect(Collectors.toList());
-    }
-     */
-
     // Método para contar la cantidad de libros por idioma
     public int listarLibrosPorIdioma(String idioma) {
         return libroRepository.countByIdiomaContaining(idioma);
     }
-
-
 
 }

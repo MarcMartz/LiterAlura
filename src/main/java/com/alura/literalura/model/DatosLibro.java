@@ -12,5 +12,4 @@ public record DatosLibro (
         @JsonAlias("languages") List<String> idiomas,
         @JsonAlias("download_count") Integer numeroDescargas
 ){
-
 }

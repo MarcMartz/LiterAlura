@@ -4,12 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Getter
 @Setter
-//@ToString(exclude = "autores")
 @NoArgsConstructor
 @Entity
 @Table(name = "libros")
@@ -35,7 +33,7 @@ public class Libro {
     public Libro(DatosLibro datosLibro) {
         this.titulo = datosLibro.titulo();
         //this.idiomas = datosLibro.idiomas();
-        this.idioma = datosLibro.idiomas().get(0); // Tomar el primer idioma de la lista
+        this.idioma = datosLibro.idiomas().get(0);
         this.numeroDescargas = datosLibro.numeroDescargas();
     }
 

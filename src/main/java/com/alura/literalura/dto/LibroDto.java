@@ -5,7 +5,7 @@ import java.util.List;
 public record LibroDto(
         Long id,
         String titulo,
-        List<String> idiomas,
+        String idiomas,
         Integer numeroDescargas,
         List<AutorDto> autores
 ) {

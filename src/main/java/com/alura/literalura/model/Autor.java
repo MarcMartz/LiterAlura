@@ -8,7 +8,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-//@ToString(exclude = "libros")
 @NoArgsConstructor
 @Entity
 @Table(name = "autores")
@@ -32,9 +31,9 @@ public class Autor {
 
     @Override
     public String toString() {
-        return "Nombre: " + nombre +
-                ", Fecha de Nacimiento: " + fechaNacimiento +
-                ", Fecha de Fallecimiento: " + fechaFallecimiento;
+        return "Nombre: " + nombre + "\n" +
+                "Fecha de Nacimiento: " + fechaNacimiento + "\n" +
+                "Fecha de Fallecimiento: " + fechaFallecimiento;
     }
 
 }

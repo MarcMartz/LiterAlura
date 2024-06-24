@@ -4,6 +4,8 @@ import com.alura.literalura.model.Autor;
 import com.alura.literalura.model.Datos;
 import com.alura.literalura.model.DatosLibro;
 import com.alura.literalura.model.Libro;
+import com.alura.literalura.repository.AutorRepository;
+import com.alura.literalura.service.AutorService;
 import com.alura.literalura.service.ConsumoApi;
 import com.alura.literalura.service.ConvierteDatos;
 import com.alura.literalura.service.LibroService;
@@ -22,9 +24,12 @@ public class Principal {
     @Autowired
     private LibroService libroService;
 
+    @Autowired
+    private AutorService autorService;
+
     public void muestraElMenu() {
         while (true) {
-            System.out.println("\n****** API LITERATURA ******");
+            System.out.println("\n*************** API LITERATURA ***************");
             System.out.println("Seleccione una opción:");
             System.out.println("1. Buscar libro por título");
             System.out.println("2. Listar libros registrados");
@@ -32,7 +37,7 @@ public class Principal {
             System.out.println("4. Listar autores vivos en un determinado año");
             System.out.println("5. Mostrar cantidad de libros por idioma");
             System.out.println("0. Salir");
-            System.out.println("*****************************");
+            System.out.println("***********************************************");
 
             int opcion = Integer.parseInt(teclado.nextLine());
 
@@ -63,11 +68,6 @@ public class Principal {
     }
 
     private void buscarLibroPorTitulo() {
-        //var json = consumoApi.obtenerDatos(URL_BASE);
-        //System.out.println(json);
-        //var datos = conversor.obtenerDatos(json, Datos.class);
-        //System.out.println(datos);
-
         System.out.println("Ingrese el titulo del libro que desea buscar:");
         var tituloLibro = teclado.nextLine();
         var json = consumoApi.obtenerDatos(URL_BASE + "?search=" + tituloLibro.replace(" ", "+"));
@@ -77,9 +77,7 @@ public class Principal {
                 .findFirst();
         if (libroBuscado.isPresent()) {
             System.out.println("Libro Encontrado\n");
-            //System.out.println(libroBuscado.get());
 
-            // Guardar libro en la base de datos
             Libro libroGuardado = libroService.guardarLibro(libroBuscado.get());
             System.out.println(libroGuardado + "\nLibro guardado con éxito");
         } else {
@@ -101,7 +99,7 @@ public class Principal {
     }
 
     private void listarAutoresDeLibrosGuardados() {
-        List<String> autores = libroService.listarAutoresDeLibros();
+        List<String> autores = autorService.listarAutoresDeLibros();
 
         if (autores.isEmpty()) {
             System.out.println("No se encontraron autores de libros.");
@@ -115,7 +113,7 @@ public class Principal {
         System.out.println("Ingrese el año para listar los autores vivos:");
         int anio = Integer.parseInt(teclado.nextLine());
 
-        List<Autor> autores = libroService.listarAutoresVivosEnAnio(anio);
+        List<Autor> autores = autorService.listarAutoresVivosEnAnio(anio);
 
         if (autores.isEmpty()) {
             System.out.println("No se encontraron autores vivos en el año " + anio);
@@ -143,10 +141,8 @@ public class Principal {
                 System.out.println("Opción no válida.");
                 return;
         }
-
         int cantidadLibros = libroService.listarLibrosPorIdioma(idiomaSeleccionado);
         System.out.println("Cantidad de libros en idioma " + (opcionIdioma == 1 ? "inglés" : "español") + ": " + cantidadLibros);
     }
-
 
 }
