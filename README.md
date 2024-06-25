@@ -42,11 +42,11 @@ Sigue estos pasos para configurar el proyecto en tu entorno local:
 
 1. Clona el repositorio
     ```sh
-    git clone https://github.com/MarcMartz/books-api-challenge.git
+    git clone https://github.com/MarcMartz/books-api-challenge-java.git
     ```
 2. Navega al directorio del proyecto
     ```sh
-    cd books-api-challenge
+    cd books-api-challenge-java
     ```
 3. Configura la base de datos PostgreSQL
     - Crea una nueva base de datos llamada `literalura`.
