@@ -21,9 +21,8 @@ Es una aplicación desarrollada en Java que interactúa con la API [Gutendex](ht
 
 ## :hammer:Funcionalidades
 
-- `Funcionalidades:`
-    - Busca libros por título y almacenalos en la base de datos
-    - Busca la cantidad de libros almacenados por idioma inglés o español
+- Busca libros por título y almacénalos en la base de datos, 
+- Busca la cantidad de libros almacenados por idioma inglés o español.
 
 ## Aplicación
 
