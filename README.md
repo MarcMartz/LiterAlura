@@ -9,7 +9,9 @@
 </p>
 
 ## Descripción del proyecto
-Es una aplicación desarrollada en Java que interactúa con la API [Gutendex](https://gutendex.com/) para obtener metadatos de libros electrónicos del Proyecto Gutenberg. Esta herramienta permite al usuario obtener información detallada sobre cada libro, como el título, autor, idioma.
+Catálogo de Libros desarrollada en Java que interactúa con la API [Gutendex](https://gutendex.com/) para obtener 
+metadatos de libros electrónicos del Proyecto Gutenberg. Esta aplicación ofrece interacción textual (vía consola) con 
+los usuarios.
 
 <p align="center">
   <img src="https://github.com/MarcMartz/books-api-challenge/assets/88258260/6221d425-c578-49e7-b884-3fc1dae734f1">
@@ -21,8 +23,12 @@ Es una aplicación desarrollada en Java que interactúa con la API [Gutendex](ht
 
 ## :hammer:Funcionalidades
 
-- Busca libros por título y almacénalos en la base de datos, 
-- Busca la cantidad de libros almacenados por idioma inglés o español.
+- Obtiene información detallada sobre cada libro, como título, autor, idioma,
+- Busca libros por título y los almacena en una base de datos, 
+- Lista los libros registrados,
+- Lista los autores registrados,
+- Lista los autores vivos en un determinado año,
+- Muestra la cantidad de libros almacenados por idioma inglés o español.
 
 ## Aplicación
 
