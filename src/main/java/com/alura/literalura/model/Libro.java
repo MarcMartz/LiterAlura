@@ -18,7 +18,6 @@ public class Libro {
     private Long id;
     @Column(unique = true)
     private String titulo;
-    //private List<String> idiomas;
     private String idioma;
     private Integer numeroDescargas;
 
@@ -32,7 +31,6 @@ public class Libro {
 
     public Libro(DatosLibro datosLibro) {
         this.titulo = datosLibro.titulo();
-        //this.idiomas = datosLibro.idiomas();
         this.idioma = datosLibro.idiomas().get(0);
         this.numeroDescargas = datosLibro.numeroDescargas();
     }
